@@ -6,11 +6,11 @@ import RecipeCard from "./RecipeCard";
 
 import { Clock, Loader } from "lucide-react";
 
-const Slider = Slick.default;
+const Slider = Slick.Slider || Slick.default || Slick;
 
 const RecipeSlider = ({ title, fetchUrl }) => {
   const { data, loading, error } = useFetch(fetchUrl);
-  console.log("my meal data = ", data?.meals);
+  //console.log("my meal data = ", data?.meals);
   const meals = data?.meals || [];
 
   const settings = {
@@ -39,14 +39,10 @@ const RecipeSlider = ({ title, fetchUrl }) => {
           {title}
         </h2>
 
-        <div style={{ width: "90%", margin: "auto", padding: "6px" }}>
+        <div style={{ width: "90%", margin: "auto", padding: "10px" }}>
           <Slider {...settings}>
             {meals.map((meal) => (
-              <div
-                key={meal.idMeal}
-                className="px-8 
-               flex justify-center"
-              >
+              <div key={meal.idMeal} className="px-20 flex justify-center">
                 <RecipeCard meal={meal} />
               </div>
             ))}

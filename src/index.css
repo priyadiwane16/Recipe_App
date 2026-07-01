@@ -2,7 +2,9 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
-body{
-  background-color: black;
-  color: white;
+@layer base {
+  body {
+    background-color: #030712; /* Matches your gray-950 theme background */
+    color: #f3f4f6;
+  }
 }
